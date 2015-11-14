@@ -1,3 +1,11 @@
 {
-    "test": "1"
+    "car": [
+        "ford",
+        "jack"
+    ],
+    "bunny": [
+        "ford",
+        "ford"
+    ],
+    "window": "alcatraz"
 }

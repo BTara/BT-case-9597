@@ -17,7 +17,7 @@ app.get('/track', function (req, res) {
   var client = redis.createClient(6379,'127.0.0.1',{no_ready_check:true}); // change credentials if needed
   connectToDB(client);
 
-	var counter = parseInt(req.query.counter);
+	var counter = parseInt(req.query.count);
 
   if(!isNaN(counter))
   {  
@@ -28,12 +28,6 @@ app.get('/track', function (req, res) {
 
   JSONsaveData(req.query,fileName);
 
-  
-  if(testing)
-  {
-    //res.writeHead(302, {'Location':'http://'+req.hostname+':'+port+'/test'})
-  }
-
   res.end();
 
 
@@ -41,18 +35,13 @@ app.get('/track', function (req, res) {
 
 app.get('/test', function (request, response) {
 
-  var testingParam = parseInt(request.query.t);
-  if(!isNaN(testingParam) && testingParam == 1)
-  {
-    testing = true;
+  var numberOfParams = parseInt(request.query.n);
+  if(isNaN(numberOfParams))
+  {  
+    numberOfParams = 1;
   }
-  /*
-  console.log(testingParam + ' ' + testing);
-  response.redirect('http://'+request.hostname+':'+port+'/track?blabla=1');
-  */
-  response.writeHead(302, {'Location':'http://'+request.hostname+':'+port+'/track?blabla=1'})
-
-  response.end();
+  test.commit(request,response,port,numberOfParams);
+  
 });
 
 app.listen(port);
