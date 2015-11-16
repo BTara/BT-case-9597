@@ -50,7 +50,8 @@ function JSONsaveData(data,fileName)
 {
   if(isFileExists(fileName))
   {
-
+    fs.unlinkSync(fileName);
+    JSONsaveData(data,fileName);
     ///
     /// append JSON here
     ///

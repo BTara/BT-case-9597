@@ -1,11 +1,10 @@
 {
-    "car": [
-        "ford",
-        "jack"
-    ],
-    "bunny": [
-        "ford",
+    "user": "alcatraz",
+    "funny": [
+        "joe",
+        "friend",
         "ford"
     ],
-    "window": "alcatraz"
+    "bunny": "alcatraz",
+    "count": "0"
 }
